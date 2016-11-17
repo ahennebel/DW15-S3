@@ -35,18 +35,17 @@ public class Menu {
                             System.out.println("Prénom de l'étudiant : ");
                             String _prenom = add.nextLine();                            
                             System.out.println("Age de l'étudiant : ");
-                            int _age = add.nextInt();
-                            entreeEtudiant.add(new Etudiant(_nom, _prenom, _age));
-                            System.out.println(entreeEtudiant);
-                            /*add.nextLine();
+                            int _age = add.nextInt();                           
+                            add.nextLine();
                             System.out.println("Notes de l'étudiant - -1 pour terminer la saisie ");
                             int _notes = 0;
                             while (_notes > -1){
                                 System.out.println("Veuillez saisir une note :  ");
                                 _notes = add.nextInt();
-                                _notes = _notes + _notes;
+                                _notes = _notes + _notes; /*Ne marche pas les notes s'additionne il faudrait les mettre dans un tableau 
+                                mais je n'arrive pas à importer le tableau dans la methode main*/
                             }
-                            System.out.println("Vous avez ajouté l'étudiant  : " + _nom + " , " + _prenom + " , " + _age  + " , " + _notes);*/
+                            System.out.println("Vous avez ajouté l'étudiant  : " + _nom + " , " + _prenom + " , " + _age  + " , " + _notes);
                             
                                                        
                         break;
