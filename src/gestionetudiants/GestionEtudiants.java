@@ -11,11 +11,15 @@ import java.util.ArrayList;
  * @author Aurelie pc neuf
  */
 public class GestionEtudiants {
-    private int saisie;
+    private String nom;
+    private String prenom;
+    private int age;
     private ArrayList<Etudiant> entreeEtudiant = new ArrayList<Etudiant>();
      
-    public GestionEtudiants(int saisie) {
-        saisie = 0;
+    public GestionEtudiants(String _nom,String _prenom,int _age) {
+        nom = _nom;
+        prenom = _prenom;
+        age = _age;
     }
 
    
