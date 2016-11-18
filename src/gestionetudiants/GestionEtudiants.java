@@ -22,9 +22,13 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
         listeEtud.add(e);
     }
     
-     public String toString(){
-        String result = new String();
-        result = System.out.println("Liste des étudiants" + listeEtud);
+    public String toString(){
+        String s = new String();
+        s += "Vous avez complété le choix :  " + this.choix + "\n";
+        s += "Liste des étudiants \n";
+        for (Etudiant e:listeEtud)
+            s += e + "\n";        
+        return s;
     }
     
     public static void main(String args[]){
@@ -47,7 +51,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                             int _age = add.nextInt();                        
                             Etudiant addEtu = new Etudiant(_nom,_prenom,_age);
                             ajout.ajouterEtud(addEtu);
-                            
+                            System.out.println(ajout);
                             
                             
                             /*add.nextLine();
