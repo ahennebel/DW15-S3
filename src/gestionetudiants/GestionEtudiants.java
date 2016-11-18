@@ -11,19 +11,13 @@ import java.util.ArrayList;
  * @author Aurelie pc neuf
  */
 public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
-    private int choix;
-    private ArrayList<Etudiant> entreeEtudiant = new ArrayList<Etudiant>();
-     
-    public GestionEtudiants(int _choix) { /*On lui defini des parametres*/
-        choix = _choix;
-    }
+    private int choix;    
     
-    /*Test fonction de recupération des données saisies pour l'étudiant*/
-    public void addEtudiant(Etudiant e){        
-        entreeEtudiant.add(e);
-        System.out.println(entreeEtudiant); 
-    }
-   
+    
+    public GestionEtudiants(int _choix) { /*On lui defini des parametres*/
+        choix = _choix;       
+    }     
+    
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         int saisie = 0;
@@ -32,8 +26,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
             saisie = sc.nextInt();
             switch (saisie)
                     {
-                        case 1:
-                            GestionEtudiants ajout = new GestionEtudiants(1);
+                        case 1:                            
                             Scanner add = new Scanner(System.in);
                             System.out.println("Vous avez choisi d'ajouter un etudiant veuillez entrer les informations suivantes :");
                             System.out.println("Nom de l'étudiant : ");
@@ -41,8 +34,8 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                             System.out.println("Prénom de l'étudiant : ");
                             String _prenom = add.nextLine();                            
                             System.out.println("Age de l'étudiant : ");
-                            int _age = add.nextInt();                             
-                            ajout.addEtudiant(new Etudiant(_nom,_prenom,_age));
+                            int _age = add.nextInt();                        
+                            Etudiant addEtu = new Etudiant(_nom,_prenom,_age);                          
                             
                             
                             
