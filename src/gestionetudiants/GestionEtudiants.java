@@ -88,6 +88,22 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
 		  sc.nextLine();
 	}
         
+        public static void nouvelEtudiantPromotion(){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("vous avez choisi d'ajoute un étudiant à une promotion");
+
+            if(listPromtions.size()>0){
+
+                    System.out.println("Choississez une promotion : ");
+
+                    for(int i=0;i<listPromtions.size();i++)
+                    {
+                            System.out.print(i+1);
+                            System.out.println(listPromtions.get(i));
+                    }
+            }
+        
+        }
         
         
         
@@ -118,12 +134,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                         break;
                         
                         case 3:
-                            Scanner c = new Scanner(System.in);
-                            System.out.print("Vous avez choisi d'afficher les érudiants d'une promotion");
-                            System.out.print("Choississez la promotion à afficher : ");
-                            /*A faire : methode qui affiche une promotion depuis l'objet promotion*/
-                            int choix_promo = c.nextInt();
-                            /*A faire : Methode qui affiche la tableau de la promotion selon la variable choix_promo*/
+                            nouvelEtudiantPromotion();
                         break;
                         
                         case 4:
