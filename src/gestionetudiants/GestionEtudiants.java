@@ -105,6 +105,17 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
         
         }
         
+        public static void ajoutNoteEtudiant(){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Vous souhaitez ajouter une note à un étudiant,");
+            System.out.println("Entrez son nom :");
+            String etudNom = sc.nextLine();
+            for (int  j=0;j<listEtudiants.size();j++)
+            {
+
+            }           
+            
+        }
         
         
     public static void main(String args[]){
