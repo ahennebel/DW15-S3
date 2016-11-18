@@ -10,11 +10,11 @@ import java.util.ArrayList;
  *
  * @author Aurelie pc neuf
  */
-public class Menu {
+public class GestionEtudiants {
     private int saisie;
     private ArrayList<Etudiant> entreeEtudiant = new ArrayList<Etudiant>();
      
-    public Menu(int saisie) {
+    public GestionEtudiants(int saisie) {
         saisie = 0;
     }
 
@@ -45,8 +45,7 @@ public class Menu {
                                 _notes = _notes + _notes; /*Ne marche pas les notes s'additionne il faudrait les mettre dans un tableau 
                                 mais je n'arrive pas à importer le tableau dans la methode main*/
                             }
-                            System.out.println("Vous avez ajouté l'étudiant  : " + _nom + " , " + _prenom + " , " + _age  + " , " + _notes);
-                            
+                            System.out.println("Vous avez ajouté l'étudiant  : " + _nom + " , " + _prenom + " , " + _age  + " , " + _notes);                           
                                                        
                         break;
                         case 2:
