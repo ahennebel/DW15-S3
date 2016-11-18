@@ -12,11 +12,20 @@ import java.util.ArrayList;
  */
 public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
     private int choix;    
-    
+    private ArrayList<Etudiant> listeEtud = new ArrayList<Etudiant>();
     
     public GestionEtudiants(int _choix) { /*On lui defini des parametres*/
         choix = _choix;       
-    }     
+    }  
+    
+    public void ajouterEtud(Etudiant e) {
+        listeEtud.add(e);
+    }
+    
+     public String toString(){
+        String result = new String();
+        result = System.out.println("Liste des étudiants" + listeEtud);
+    }
     
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -26,7 +35,8 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
             saisie = sc.nextInt();
             switch (saisie)
                     {
-                        case 1:                            
+                        case 1: 
+                            GestionEtudiants ajout = new GestionEtudiants(1);
                             Scanner add = new Scanner(System.in);
                             System.out.println("Vous avez choisi d'ajouter un etudiant veuillez entrer les informations suivantes :");
                             System.out.println("Nom de l'étudiant : ");
@@ -35,7 +45,8 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                             String _prenom = add.nextLine();                            
                             System.out.println("Age de l'étudiant : ");
                             int _age = add.nextInt();                        
-                            Etudiant addEtu = new Etudiant(_nom,_prenom,_age);                          
+                            Etudiant addEtu = new Etudiant(_nom,_prenom,_age);
+                            ajout.ajouterEtud(addEtu);
                             
                             
                             
