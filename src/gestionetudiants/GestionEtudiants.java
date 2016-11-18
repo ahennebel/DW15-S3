@@ -6,79 +6,115 @@
 package gestionetudiants;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Aurelie pc neuf
  */
 public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
-    private int choix;    
-    private ArrayList<Etudiant> listeEtud = new ArrayList<Etudiant>();
+    private static List<Promotion> listPromtions =new ArrayList<Promotion>();
+    private static List<Etudiant> listEtudiants= new ArrayList<Etudiant>();
     
-    public GestionEtudiants(int _choix) { /*On lui defini des parametres*/
-        choix = _choix;       
-    }  
+
     
-    public void ajouterEtud(Etudiant e) {
-        listeEtud.add(e);
-    }
+    	public static void nouvelEtudiant(){
+		
+		Etudiant et = new Etudiant();
+		int note;
+		Scanner add = new Scanner(System.in);
+		System.out.println(" Choix 1:");
+		System.out.println(" vous avez choisi d'ajoute un nouveau etudiant ,veuillez entre les informations suivantes");
+		System.out.println("Nom de l etudiant ");
+                et.setNom(add.nextLine());
+		System.out.println("Prenom de l etudiant ");
+		et.setPrenom(add.nextLine());
+		System.out.println("Age de l etudiant ");
+		et.setAge(add.nextInt());
+		System.out.println("enter les notes (-1 pour terminer) :");
+		int i=1;
+		System.out.println("Note "+i);
+		note=add.nextInt();
+		
+		while(-1!=note){
+			
+			et.ajouterNote(note);
+			i++;
+			System.out.println("Note "+i);
+			note=add.nextInt();			
+		}
+		
+		listEtudiants.add(et);
+		System.out.println("Vous avez ajouté l etudaint :"+et.toString());
+		add.nextLine();
+		System.out.println("    ");
+	}
     
-    public String toString(){
-        String s = new String();
-        s += "Vous avez complété le choix :  " + this.choix + "\n";
-        s += "Liste des étudiants \n";
-        for (Etudiant e:listeEtud)
-            s += e + "\n";        
-        return s;
-    }
-    
+        
+        public static void nouvellePromotion()
+	{
+		Promotion pr=new Promotion();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("vous avez choisi d'ajoute une promotion");
+		System.out.println("nom de la promotion :");
+                pr.setAnnee(sc.nextLine());
+	 
+		if(listEtudiants.size()>0){
+			
+			System.out.println("Selectionne parmis les etudiants disponibles:");
+	    
+			for(int i=0;i<listEtudiants.size();i++)
+			{
+				System.out.print(i+1);
+				System.out.println(listEtudiants.get(i));
+			}
+	    
+	    	System.out.println("Saisir un numéro(-1 pour terminer)");
+	    	int i=1;
+		    System.out.println("Ajouter l'etudiant "+i);
+		    int num = sc.nextInt();
+		    
+			while(-1!=num)
+			{
+				Etudiant et=listEtudiants.get(num-1);
+				pr.ajouterEtud(et);
+				i++;
+				System.out.println("Ajouter l'etudiant "+i);
+				num = sc.nextInt();
+			}
+	    	
+	    } 
+		  listPromtions.add(pr);
+		  System.out.println("vous avez ajoute "+pr.toString());
+		  sc.nextLine();
+	}
+        
+        
+        
+        
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         int saisie = 0;
         while (saisie >-1){
+            System.out.println("Menu principale ");
+            System.out.println("1: creer un nouvel etudaint :");
+            System.out.println("2: creer une nouvelle promotion:");
+            System.out.println("3: Affiche les etudiants d'une promotion:");
+            System.out.println("4: Affiche le meilleur etudaint par promotion ");
+            System.out.println("5: Ajouter des notes a un etudiant");
+            System.out.println("6: Fusionner deux promotions");
+            System.out.println("7: trier les etudaints d'une promotion ");
+            System.out.println("8:...................................");
             System.out.println("Veuillez choisir une fonctionnalité : ");
             saisie = sc.nextInt();
             switch (saisie)
                     {
                         case 1: 
-                            GestionEtudiants ajout = new GestionEtudiants(1);
-                            Scanner add = new Scanner(System.in);
-                            System.out.println("Vous avez choisi d'ajouter un etudiant veuillez entrer les informations suivantes :");
-                            System.out.println("Nom de l'étudiant : ");
-                            String _nom = add.nextLine();
-                            System.out.println("Prénom de l'étudiant : ");
-                            String _prenom = add.nextLine();                            
-                            System.out.println("Age de l'étudiant : ");
-                            int _age = add.nextInt();                        
-                            Etudiant addEtu = new Etudiant(_nom,_prenom,_age);
-                            ajout.ajouterEtud(addEtu);
-                            System.out.println(ajout);
-                            
-                            
-                            /*add.nextLine();
-                            System.out.println("Notes de l'étudiant - -1 pour terminer la saisie ");
-                            int _notes = 0;
-                            while (_notes > -1){
-                                System.out.println("Veuillez saisir une note :  ");
-                                _notes = add.nextInt();
-                                _notes = _notes + _notes; /*Ne marche pas les notes s'additionne il faudrait les mettre dans un tableau 
-                                mais je n'arrive pas à importer le tableau dans la methode main*/
-                            //}
-                                                       
-                                                       
-                        break;
-                        
+                            nouvelEtudiant();
+                        break;                                                 
+                                                      
+                                               
                         case 2:
-                            Scanner b = new Scanner(System.in);
-                            System.out.println("Vous avez choisi de créer une nouvelle promotion");
-                            System.out.println("Veuillez saisir le nom de la promotion :");
-                            String nom_promo = b.nextLine();
-                            System.out.println("Veuillez saisir l'année de la promotion :");
-                            int annee_promo = b.nextInt();
-                            Promotion p2016 = new Promotion(2016);
-                            System.out.println("Veuillez selectionner les étudiants parmis ceux disponibles : ");
-                            /*A faire : Afficher le tableau de la classe generale avec un id correspondant*/
-                            int choix_etud = b.nextInt();
-                            /*A faire : envoyer la ligne du tableau correspondante dans le tableau de la promotion correspondante*/
+                            nouvellePromotion();
                         break;
                         
                         case 3:

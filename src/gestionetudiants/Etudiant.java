@@ -18,16 +18,50 @@ public class Etudiant {
 	age = _age;        
     } 
     
-    public String getNom() {
-    return nom;
+    public Etudiant() {
+		// TODO Auto-generated constructor stub
+    	super();
+    	
+	}
+   
+    public ArrayList<Integer> getNotes() {
+		return notes;
+	}
+	public void setNotes(ArrayList<Integer> notes) {
+		this.notes = notes;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public String getNom() {
+	return this.nom;
+    }
+    public String getPrenom() {
+	return this.prenom;
     }
     void setAge(int _age) {
-        age = _age;
+	age = _age;
+    }
+    public String toString()
+    {
+       // return nom+","+prenom+","+age+"ans : notes "+notes+"Moyenne :"+this.moyenne();
+        String retour = "";
+            retour = retour + "Nom : " + nom + "   ";
+            retour = retour + "Prénom : " + prenom + "   ";
+            retour = retour + "Age : " + age + "  ";
+            retour = retour +"Notes : "+notes+"  ";
+            retour = retour +"Moyenne : "+this.moyenne();
+            return retour;
+        
     }
     
-    public String toString(){
-        return nom + " , " + prenom + " ( " + age + "ans) . Notes :" + notes + "Moyenne : " + this.moyenne();
-    }
+
     
     public void ajouterNote(int n){
         notes.add(n);
