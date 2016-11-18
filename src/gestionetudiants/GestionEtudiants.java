@@ -72,7 +72,9 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                             System.out.println("Vous avez choisi de créer une nouvelle promotion");
                             System.out.println("Veuillez saisir le nom de la promotion :");
                             String nom_promo = b.nextLine();
-                            /* A faire : Envoi de la valeur dans l'objet promotion*/
+                            System.out.println("Veuillez saisir l'année de la promotion :");
+                            int annee_promo = b.nextInt();
+                            Promotion p2016 = new Promotion(2016);
                             System.out.println("Veuillez selectionner les étudiants parmis ceux disponibles : ");
                             /*A faire : Afficher le tableau de la classe generale avec un id correspondant*/
                             int choix_etud = b.nextInt();
