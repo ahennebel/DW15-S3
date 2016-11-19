@@ -109,6 +109,26 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             
         }
         
+        public static void meilleurEtudiant(){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Vous souhaitez connaitre le meilleur étudiant d'une promotion : ");
+
+            if(listPromtions.size()>0){
+
+                    System.out.println("Choississez une promotion : ");
+
+                    for(int i=0;i<listPromtions.size();i++)
+                    {
+                            Promotion nomPromo = listPromtions.get(i);
+                            System.out.print(i+1+" " );
+                            System.out.println(nomPromo.getAnnee());
+                    }
+            }
+            int numPromo = sc.nextInt();
+            Promotion bonnePromo = listPromtions.get(numPromo-1);
+            
+        }
+        
         public static void ajoutNoteEtudiant(){
             Scanner sc=new Scanner(System.in);
             System.out.println("Vous souhaitez ajouter une note à un étudiant,");
