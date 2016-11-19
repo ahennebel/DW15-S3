@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Aurelie pc neuf
  */
-public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
+public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
     private static List<Promotion> listPromtions =new ArrayList<Promotion>();
     private static List<Etudiant> listEtudiants= new ArrayList<Etudiant>();
     
@@ -110,7 +110,32 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
             System.out.println("Vous souhaitez ajouter une note à un étudiant,");
             System.out.println("Entrez son nom :");
             String etudNom = sc.nextLine();
-
+            boolean trouve = false;
+            Etudiant bonEtudiant = null;
+            for(int i=0;i<listEtudiants.size();i++){
+                Etudiant chercheEtudiant = listEtudiants.get(i);
+                if (chercheEtudiant.getNom()== etudNom){
+                    trouve = true;
+                    bonEtudiant = chercheEtudiant;                   
+                }                
+            }
+            
+            if (trouve == false){
+                System.out.println("Etudiant inconnu , veuillez réessayer :");
+            }else{
+                System.out.println("Entrer les notes de l'etudiant (-1 pour terminer) :");
+		int i=1;
+		System.out.println("Note "+i);
+		int note=sc.nextInt();
+		
+		while(-1!=note){			
+			bonEtudiant.ajouterNote(note);
+			i++;
+			System.out.println("Note "+i);
+			note=sc.nextInt();			
+		}
+            }
+           
         }
         
         
