@@ -116,7 +116,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                 Etudiant chercheEtudiant = listEtudiants.get(i);
                 if ((chercheEtudiant.getNom()).equals(etudNom)){                    
                     trouve = true;
-                    bonEtudiant = chercheEtudiant;           11        
+                    bonEtudiant = chercheEtudiant;        
                 }                
             }
             
@@ -135,7 +135,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 			note=sc.nextInt();			
 		}
             }
-           
+           System.out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
         }
         
         
