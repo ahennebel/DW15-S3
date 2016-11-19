@@ -72,7 +72,7 @@ public class Promotion {
     s +="Promotion :"+this.nom+"\n";
     for(Etudiant e:listEtud)    
         s +=e +"\n";
-        s +="Moyenne generale : \n"+this.moyenne();
+        s +="Moyenne generale : \n"+this.moyenne()+"\n";
     return s;
     }
     

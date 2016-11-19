@@ -88,9 +88,9 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 		  sc.nextLine();
 	}
         
-        public static void nouvelEtudiantPromotion(){
+        public static void afficherPromotion(){
             Scanner sc=new Scanner(System.in);
-            System.out.println("vous avez choisi d'ajoute un étudiant à une promotion");
+            System.out.println("vous avez choisi d'afficher une promotion");
 
             if(listPromtions.size()>0){
 
@@ -98,11 +98,15 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 
                     for(int i=0;i<listPromtions.size();i++)
                     {
-                            System.out.print(i+1);
-                            System.out.println(listPromtions.get(i));
+                            Promotion nomPromo = listPromtions.get(i);
+                            System.out.print(i+1+" " );
+                            System.out.println(nomPromo.getAnnee());
                     }
             }
-        
+            int numPromo = sc.nextInt();
+            Promotion bonnePromo = listPromtions.get(numPromo-1);
+            System.out.println("Liste des etudiants : \n" + bonnePromo.getListEtud());           
+            
         }
         
         public static void ajoutNoteEtudiant(){
@@ -166,7 +170,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                         break;
                         
                         case 3:
-                            nouvelEtudiantPromotion();
+                            afficherPromotion();
                         break;
                         
                         case 4:
