@@ -114,9 +114,9 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             Etudiant bonEtudiant = null;
             for(int i=0;i<listEtudiants.size();i++){
                 Etudiant chercheEtudiant = listEtudiants.get(i);
-                if (chercheEtudiant.getNom()== etudNom){
+                if ((chercheEtudiant.getNom()).equals(etudNom)){                    
                     trouve = true;
-                    bonEtudiant = chercheEtudiant;                   
+                    bonEtudiant = chercheEtudiant;           11        
                 }                
             }
             
