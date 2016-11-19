@@ -110,11 +110,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
             System.out.println("Vous souhaitez ajouter une note à un étudiant,");
             System.out.println("Entrez son nom :");
             String etudNom = sc.nextLine();
-            for (int  j=0;j<listEtudiants.size();j++)
-            {
 
-            }           
-            
         }
         
         
@@ -129,7 +125,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
             System.out.println("4: Affiche le meilleur etudaint par promotion ");
             System.out.println("5: Ajouter des notes a un etudiant");
             System.out.println("6: Fusionner deux promotions");
-            System.out.println("7: trier les etudaints d'une promotion ");
+            System.out.println("7: trier les etudiants d'une promotion ");
             System.out.println("8:...................................");
             System.out.println("Veuillez choisir une fonctionnalité : ");
             saisie = sc.nextInt();
@@ -158,12 +154,7 @@ public class GestionEtudiants { /*On crée la classe qui gerera les Etudiants*/
                         break;
                         
                         case 5:
-                            Scanner e = new Scanner(System.in);
-                            System.out.print("Vous avez choisi d'ajouter une note à un étudiant");
-                            System.out.print("Entrer le nom de l'étudiant :");
-                            String nom_etudiant = e.nextLine();
-                            System.out.print("Entrez la note à attribuer à " + nom_etudiant + " : ");
-                            /* A faire : Methode qui ajoute à un etudiant une note avec comme index son nom*/
+                            ajoutNoteEtudiant();
                         break;
                         
                         case 6:

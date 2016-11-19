@@ -27,20 +27,20 @@ public class Etudiant {
     public ArrayList<Integer> getNotes() {
 		return notes;
 	}
-	public void setNotes(ArrayList<Integer> notes) {
-		this.notes = notes;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	public String getNom() {
-	return this.nom;
+    public void setNotes(ArrayList<Integer> notes) {
+            this.notes = notes;
+    }
+    public int getAge() {
+            return age;
+    }
+    public void setNom(String nom) {
+            this.nom = nom;
+    }
+    public void setPrenom(String prenom) {
+            this.prenom = prenom;
+    }
+    public String getNom() {
+    return this.nom;
     }
     public String getPrenom() {
 	return this.prenom;
