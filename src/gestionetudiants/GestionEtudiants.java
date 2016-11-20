@@ -23,12 +23,12 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 		int note;
 		Scanner add = new Scanner(System.in);
 		System.out.println(" Choix 1:");
-		System.out.println(" vous avez choisi d'ajoute un nouveau etudiant ,veuillez entre les informations suivantes");
+		System.out.println(" vous avez choisi d'ajouter un nouveau etudiant ,veuillez entrer les informations suivantes");
 		System.out.println("Nom de l etudiant ");
                 et.setNom(add.nextLine());
-		System.out.println("Prenom de l etudiant ");
+		System.out.println("Prenom de l'etudiant ");
 		et.setPrenom(add.nextLine());
-		System.out.println("Age de l etudiant ");
+		System.out.println("Age de l'etudiant ");
 		et.setAge(add.nextInt());
 		System.out.println("enter les notes (-1 pour terminer) :");
 		int i=1;
@@ -94,7 +94,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 
             if(listPromtions.size()>0){
 
-                    System.out.println("Choississez une promotion : ");
+                    System.out.println("Choisissez une promotion : ");
 
                     for(int i=0;i<listPromtions.size();i++)
                     {
@@ -116,7 +116,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 
             if(listPromtions.size()>0){
 
-                    System.out.println("Choississez une promotion : ");
+                    System.out.println("Choisissez une promotion : ");
 
                     for(int i=0;i<listPromtions.size();i++)
                     {
@@ -139,7 +139,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 
             if(listPromtions.size()>0){
 
-                    System.out.println("Choississez une promotion : ");
+                    System.out.println("Choisissez une promotion : ");
 
                     for(int i=0;i<listPromtions.size();i++)
                     {
@@ -214,6 +214,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             System.out.print("Choix du nom de la promotion : ");
             String nom_fusion = sc.nextLine();
             /*A finir : fusionner 2 objet dans un nouvel objet Promotion*/
+            System.out.print("Nous n'avons pas trouvé comment faire cette opération! ");
             
         }
         
@@ -288,7 +289,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                             mauvaisEtudiant();
                         break;
                         default:
-                            System.out.println("Veuillez choisir un nombre entre 1 et 9 ! ");
+                            System.out.println("Veuillez choisir un nombre entre 1 et 8 ! ");
 
                     }
             sc.nextLine();
