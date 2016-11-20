@@ -109,6 +109,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             
         }
         
+        
         public static void meilleurEtudiant(){
             Scanner sc=new Scanner(System.in);
             System.out.println("Vous souhaitez connaitre le meilleur étudiant d'une promotion : ");
@@ -126,7 +127,34 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             }
             int numPromo = sc.nextInt();
             Promotion bonnePromo = listPromtions.get(numPromo-1);
-            
+            bonnePromo.getListOrder();
+            System.out.println("Le meilleur etudiant de la promotion " + bonnePromo.getAnnee() + " est :  \n " );
+               
+        }
+        
+        
+        public static void triPromotion(){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Vous souhaitez connaitre le meilleur étudiant d'une promotion : ");
+
+            if(listPromtions.size()>0){
+
+                    System.out.println("Choississez une promotion : ");
+
+                    for(int i=0;i<listPromtions.size();i++)
+                    {
+                            Promotion nomPromo = listPromtions.get(i);
+                            System.out.print(i+1+" " );
+                            System.out.println(nomPromo.getAnnee());
+                    }
+            }
+            int numPromo = sc.nextInt();
+            Promotion bonnePromo = listPromtions.get(numPromo-1);
+            bonnePromo.getListOrder();
+            System.out.println("Promotion" + bonnePromo.getAnnee() + "rangée par ordre de moyenne décroissant :  \n");
+            for (Etudiant p : bonnePromo.getListEtud()) {
+                System.out.println("Ordre : " + p.toString());
+            }        
         }
         
         public static void ajoutNoteEtudiant(){
@@ -167,7 +195,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
         Scanner sc = new Scanner(System.in);
         int saisie = 0;
         while (saisie >-1){
-            System.out.println("Menu principale ");
+            System.out.println("Menu principal ");
             System.out.println("1: creer un nouvel etudaint :");
             System.out.println("2: creer une nouvelle promotion:");
             System.out.println("3: Affiche les etudiants d'une promotion:");
@@ -194,12 +222,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                         break;
                         
                         case 4:
-                            Scanner d = new Scanner(System.in);
-                            System.out.print("Vous avez choisi d'afficher le meilleur étudiant par promotion");
-                            System.out.print("Choississez la promotion à afficher : ");
-                            /*Reprendre la methode du choix de la promotion de case 3*/
-                            int choix_promo_best = d.nextInt();
-                            /*A faire Methode qui affiche l'étudiant ayant la meilleure moyenne dans le tableau de promotion donné*/
+                            meilleurEtudiant();
                         break;
                         
                         case 5:
@@ -223,13 +246,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                         break;                        
                        
                         case 7:
-                            Scanner g = new Scanner(System.in);
-                            System.out.print("Vous avez choisi de tier les étudiant d'une promotion :");
-                            System.out.print("Voici les promotions disponibles : ");
-                             /*Reprendre methode de la case 3*/
-                            System.out.print("Choix de la promotion : ");
-                            int promo_tri = g.nextInt();
-                            /*A faire : methode qui affiche un tableau avec une entrée triée par moyenne decroissante*/
+                            triPromotion();
                         break;
                         default:
                             System.out.println("Veuillez choisir un nombre entre 1 et 9 ! ");

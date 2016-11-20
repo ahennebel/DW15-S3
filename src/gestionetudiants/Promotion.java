@@ -5,6 +5,9 @@
  */
 package gestionetudiants;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 /**
  *
  * @author Aurelie pc neuf
@@ -23,7 +26,28 @@ public class Promotion {
 		// TODO Auto-generated constructor stub
     	super();
     	
-	} 
+	}
+    
+    /**
+     * Test de tri de la listEtud avec la class comparator
+     */
+    class PromotionComparator implements Comparator<Etudiant> {
+    public int compare(Etudiant o1, Etudiant o2) {
+        int r = ((Double) o1.getMoyenne()).compareTo(o2.getMoyenne());
+        if (r != 0) return r;
+        return ((String) o1.getNom()).compareTo(o2.getNom()); 
+    }
+    }
+    
+    public void getListOrder(){
+        Collections.sort(this.listEtud, new PromotionComparator());
+        
+    }    
+    /**
+     * 
+     * @return 
+     */
+    
     
     public ArrayList<Etudiant> getListEtud() {
 		return listEtud;
@@ -31,6 +55,7 @@ public class Promotion {
 
     public void setListEtud(ArrayList<Etudiant> listEtud) {
             this.listEtud = listEtud;
+            
     }
 
     public String getAnnee() {
