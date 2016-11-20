@@ -170,8 +170,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                     trouve = true;
                     bonEtudiant = chercheEtudiant;        
                 }                
-            }
-            
+            }            
             if (trouve == false){
                 System.out.println("Etudiant inconnu , veuillez réessayer :");
             }else{
@@ -190,6 +189,33 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
            System.out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
         }
         
+        
+        public static void fusionPromotion(){
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Vous avez choisi de fusionner 2 promotions :");
+            System.out.print("Voici les promotions disponibles : ");
+            if(listPromtions.size()>0){
+                    System.out.println("Choississez une promotion : ");
+                    for(int i=0;i<listPromtions.size();i++)
+                    {
+                            Promotion nomPromo = listPromtions.get(i);
+                            System.out.print(i+1+" " );
+                            System.out.println(nomPromo.getAnnee());
+                    }
+            }
+            System.out.print("Choix de la premiere promotion : ");
+            int fusion_1 = sc.nextInt();
+            Promotion promo_1 = listPromtions.get(fusion_1-1);
+            sc.nextLine();
+            System.out.print("Choix de la deuxieme promotion : ");
+            int fusion_2 = sc.nextInt();
+            Promotion promo_2 = listPromtions.get(fusion_2-1);
+            sc.nextLine();
+            System.out.print("Choix du nom de la promotion : ");
+            String nom_fusion = sc.nextLine();
+            /*A faire Methode qui crée une promotion en important 2 tableaux*/
+            
+        }
         
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -230,19 +256,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                         break;
                         
                         case 6:
-                            Scanner f = new Scanner(System.in);
-                            System.out.print("Vous avez choisi de fusionner 2 promotions :");
-                            System.out.print("Voici les promotions disponibles : ");
-                            /*Reprendre methode de la case 3*/
-                            System.out.print("Choix de la premiere promotion : ");
-                            int fusion_1 = f.nextInt();
-                            f.nextLine();
-                            System.out.print("Choix de la deuxieme promotion : ");
-                            int fusion_2 = f.nextInt();
-                            f.nextLine();
-                            System.out.print("Choix du nom de la promotion : ");
-                            String nom_fusion = f.nextLine();
-                            /*A faire Methode qui crée une promotion en important 2 tableaux*/
+                            fusionPromotion();
                         break;                        
                        
                         case 7:
