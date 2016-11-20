@@ -52,7 +52,7 @@ public class Promotion {
     }
     
     public Etudiant getBadEtud(){
-       int dernier = listEtud.size();
+       int dernier = listEtud.size()-1;
     return listEtud.get(dernier);
     }
     
