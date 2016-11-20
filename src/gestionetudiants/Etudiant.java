@@ -10,12 +10,14 @@ import java.util.Scanner;
 public class Etudiant {
     private String nom, prenom;
     private int age;
+    private double moyenne;
     private ArrayList<Integer> notes = new ArrayList<Integer>();
     
     public Etudiant(String _nom, String _prenom, int _age) {
 	nom = _nom;
 	prenom = _prenom;
-	age = _age;        
+	age = _age;
+        
     } 
     
     public Etudiant() {
@@ -56,12 +58,16 @@ public class Etudiant {
             retour = retour + "Prénom : " + prenom + "   ";
             retour = retour + "Age : " + age + "  ";
             retour = retour +"Notes : "+notes+"  ";
-            retour = retour +"Moyenne : "+this.moyenne();
+            retour = retour +"Moyenne : "+getMoyenne()+"\n";
             return retour;
         
     }
     
-
+    public double getMoyenne()
+    {
+        moyenne = this.moyenne();
+        return moyenne;
+    }
     
     public void ajouterNote(int n){
         notes.add(n);
