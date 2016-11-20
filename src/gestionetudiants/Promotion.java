@@ -51,6 +51,10 @@ public class Promotion {
         return listEtud.get(0);
     }
     
+    public Etudiant getBadEtud(){
+       int dernier = listEtud.size();
+    return listEtud.get(dernier);
+    }
     
     public ArrayList<Etudiant> getListEtud() {
 		return listEtud;

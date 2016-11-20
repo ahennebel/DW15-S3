@@ -213,8 +213,30 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             sc.nextLine();
             System.out.print("Choix du nom de la promotion : ");
             String nom_fusion = sc.nextLine();
-            /*A faire Methode qui crée une promotion en important 2 tableaux*/
+            /*A finir : fusionner 2 objet dans un nouvel objet Promotion*/
             
+        }
+        
+        public static void mauvaisEtudiant(){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Vous souhaitez connaitre le meilleur étudiant d'une promotion : ");
+
+            if(listPromtions.size()>0){
+
+                    System.out.println("Choississez une promotion : ");
+
+                    for(int i=0;i<listPromtions.size();i++)
+                    {
+                            Promotion nomPromo = listPromtions.get(i);
+                            System.out.print(i+1+" " );
+                            System.out.println(nomPromo.getAnnee());
+                    }
+            }
+            int numPromo = sc.nextInt();
+            Promotion bonnePromo = listPromtions.get(numPromo-1);
+            bonnePromo.getListOrder(); 
+            System.out.println("Le meilleur etudiant de la promotion " + bonnePromo.getAnnee() + " est :  \n " + bonnePromo.getBadEtud()  );
+               
         }
         
     public static void main(String args[]){
@@ -222,13 +244,13 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
         int saisie = 0;
         while (saisie >-1){
             System.out.println("Menu principal ");
-            System.out.println("1: creer un nouvel etudaint :");
-            System.out.println("2: creer une nouvelle promotion:");
-            System.out.println("3: Affiche les etudiants d'une promotion:");
-            System.out.println("4: Affiche le meilleur etudaint par promotion ");
+            System.out.println("1: Creer un nouvel etudiant :");
+            System.out.println("2: Creer une nouvelle promotion:");
+            System.out.println("3: Afficher les etudiants d'une promotion:");
+            System.out.println("4: Afficher le meilleur etudiant par promotion ");
             System.out.println("5: Ajouter des notes a un etudiant");
             System.out.println("6: Fusionner deux promotions");
-            System.out.println("7: trier les etudiants d'une promotion ");
+            System.out.println("7: Trier les etudiants d'une promotion ");
             System.out.println("8:...................................");
             System.out.println("Veuillez choisir une fonctionnalité : ");
             saisie = sc.nextInt();
@@ -261,6 +283,9 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
                        
                         case 7:
                             triPromotion();
+                        break;
+                        case 8:
+                            mauvaisEtudiant();
                         break;
                         default:
                             System.out.println("Veuillez choisir un nombre entre 1 et 9 ! ");
