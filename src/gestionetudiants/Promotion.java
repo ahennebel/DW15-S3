@@ -33,9 +33,9 @@ public class Promotion {
      */
     class PromotionComparator implements Comparator<Etudiant> {
     public int compare(Etudiant o1, Etudiant o2) {
-        int r = ((Double) o1.getMoyenne()).compareTo(o2.getMoyenne());
+        int r = ((Double) o2.getMoyenne()).compareTo(o1.getMoyenne());
         if (r != 0) return r;
-        return ((String) o1.getNom()).compareTo(o2.getNom()); 
+        return ((String) o2.getNom()).compareTo(o1.getNom()); 
     }
     }
     
