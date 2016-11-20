@@ -50,20 +50,8 @@ public class Etudiant {
     void setAge(int _age) {
 	age = _age;
     }
-    public String toString()
-    {
-       // return nom+","+prenom+","+age+"ans : notes "+notes+"Moyenne :"+this.moyenne();
-        String retour = "";
-            retour = retour + "Nom : " + nom + "   ";
-            retour = retour + "Prénom : " + prenom + "   ";
-            retour = retour + "Age : " + age + "  ";
-            retour = retour +"Notes : "+notes+"  ";
-            retour = retour +"Moyenne : "+getMoyenne()+"\n";
-            return retour;
-        
-    }
     
-    public double getMoyenne()
+     public double getMoyenne()
     {
         moyenne = this.moyenne();
         return moyenne;
@@ -81,6 +69,21 @@ public class Etudiant {
         }
         return somme/notes.size();
     }
+    
+    public String toString()
+    {
+       // return nom+","+prenom+","+age+"ans : notes "+notes+"Moyenne :"+this.moyenne();
+        String retour = "";
+            retour = retour + "Nom : " + nom + "   ";
+            retour = retour + "Prénom : " + prenom + "   ";
+            retour = retour + "Age : " + age + "  ";
+            retour = retour +"Notes : "+notes+"  ";
+            retour = retour +"Moyenne : "+getMoyenne()+"\n";
+            return retour;
+        
+    }
+    
+   
     
     /*public static void main(String args[]){
         ArrayList<Etudiant> listeEtud = new ArrayList<Etudiant>();
