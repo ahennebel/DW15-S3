@@ -44,7 +44,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
 		}
 		
 		listEtudiants.add(et);
-		System.out.println("Vous avez ajouté l etudaint :"+et.toString());
+		System.out.println("Vous avez ajouté l etudiant : "+et.toString());
 		add.nextLine();
 		System.out.println("    ");
 	}
@@ -242,7 +242,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         int saisie = 0;
-        while (saisie >-1){
+        while (saisie != -1){
             System.out.println("Menu principal ");
             System.out.println("1: Creer un nouvel etudiant :");
             System.out.println("2: Creer une nouvelle promotion:");
@@ -251,7 +251,7 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             System.out.println("5: Ajouter des notes a un etudiant");
             System.out.println("6: Fusionner deux promotions");
             System.out.println("7: Trier les etudiants d'une promotion ");
-            System.out.println("8:...................................");
+            System.out.println("8: Afficher le plus mauvais etudiant d'une promotion ");
             System.out.println("Veuillez choisir une fonctionnalité : ");
             saisie = sc.nextInt();
             switch (saisie)
