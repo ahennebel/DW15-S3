@@ -127,8 +127,8 @@ public class GestionEtudiants { /*On crée la classe qui gérera les Etudiants*/
             }
             int numPromo = sc.nextInt();
             Promotion bonnePromo = listPromtions.get(numPromo-1);
-            bonnePromo.getListOrder();
-            System.out.println("Le meilleur etudiant de la promotion " + bonnePromo.getAnnee() + " est :  \n " );
+            bonnePromo.getListOrder(); 
+            System.out.println("Le meilleur etudiant de la promotion " + bonnePromo.getAnnee() + " est :  \n " + bonnePromo.getBestEtud()  );
                
         }
         

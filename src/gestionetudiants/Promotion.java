@@ -40,13 +40,16 @@ public class Promotion {
     }
     
     public void getListOrder(){
-        Collections.sort(this.listEtud, new PromotionComparator());
-        
+        Collections.sort(this.listEtud, new PromotionComparator());        
     }    
     /**
      * 
      * @return 
      */
+    
+    public Etudiant getBestEtud(){
+        return listEtud.get(0);
+    }
     
     
     public ArrayList<Etudiant> getListEtud() {
