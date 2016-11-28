@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class traitementMenu extends HttpServlet {
+public class ajoutetudiant extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,42 +29,24 @@ public class traitementMenu extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String choix = request.getParameter("choix");
-        switch (choix){           
-                        case "1": 
-                            response.sendRedirect("ajoutetudiant.html");
-                        break;                                               
-                        
-                        case "2":
-                            
-                        break;
-                        
-                        case "3":
-                            
-                        break;
-                        
-                        case "4":
-                            
-                        break;
-                        
-                        case "5":
-                            
-                        break;
-                        
-                        case "6":
-                            
-                        break;                        
-                       
-                        case "7":
-                            
-                        break;
-                        case "8":
-                            
-                        break;
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ajoutetudiant</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ajoutetudiant at " + request.getContextPath() + "</h1>");
+            Etudiant et = new Etudiant();
+            et.setNom(request.getParameter("nom"));
+            et.setPrenom(request.getParameter("prenom"));
+            et.setAge(Integer.parseInt(request.getParameter("age")));
+            out.println("Vous avez ajouté l etudiant : <br>"+et.toString());
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

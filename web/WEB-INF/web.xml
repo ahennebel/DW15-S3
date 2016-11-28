@@ -4,9 +4,17 @@
         <servlet-name>traitementMenu</servlet-name>
         <servlet-class>gestionetudiants.traitementMenu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ajoutetudiant</servlet-name>
+        <servlet-class>gestionetudiants.ajoutetudiant</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>traitementMenu</servlet-name>
         <url-pattern>/traitementMenu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajoutetudiant</servlet-name>
+        <url-pattern>/ajoutetudiant</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
