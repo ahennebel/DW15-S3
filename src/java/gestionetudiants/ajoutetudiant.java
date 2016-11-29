@@ -44,13 +44,16 @@ public class ajoutetudiant extends HttpServlet {
             out.println("<title>Servlet ajoutetudiant</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ajoutetudiant at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Création d'un étudiant :</h1>");
             Etudiant et = new Etudiant();
             et.setNom(request.getParameter("nom"));
             et.setPrenom(request.getParameter("prenom"));
             et.setAge(Integer.parseInt(request.getParameter("age")));
             ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
             listEtudiants.add(et);
+            et.ajouterNote(Integer.parseInt(request.getParameter("note1")));
+            et.ajouterNote(Integer.parseInt(request.getParameter("note2")));
+            et.ajouterNote(Integer.parseInt(request.getParameter("note3")));
             out.println("Vous avez ajouté l etudiant : <br>"+et.toString());
             out.println("<br><a href=\"index.html\">Retour au menu</a>");
             out.println("<br><a href=\"ajoutetudiant.html\">Ajouter un nouvel étudiant</a>");
