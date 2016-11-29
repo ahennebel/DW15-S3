@@ -12,12 +12,12 @@ and open the template in the editor.
     </head>
     <body>
         <form method="get" action="ajoutetudiant">
-            <label>Nom</label><input type="text" name="nom"/>
-            <label>Prénom</label><input type="text" name="prenom"/>
-            <label>Age</label><input type="text" name="age"/><br><br>
-            <label>Note n°1</label><input type="number" name="note1" max="20"/><br>
-            <label>Note n°2</label><input type="number" name="note2" max="20"/><br>
-            <label>Note n°3</label><input type="number" name="note3" max="20"/><br><br>
+            <label>Nom</label><input type="text" name="nom" required/>
+            <label>Prénom</label><input type="text" name="prenom" required/>
+            <label>Age</label><input type="text" name="age" required/><br><br>
+            <label>Note n°1</label><input type="number" name="note1" max="20" required/><br>
+            <label>Note n°2</label><input type="number" name="note2" max="20" required/><br>
+            <label>Note n°3</label><input type="number" name="note3" max="20" required/><br><br>
             <input type="submit" value="Créer étudiant"/>
         </form>
     </body>
