@@ -44,24 +44,8 @@ public class traitementMenu extends HttpServlet {
                             
                         break;
                         
-                        case "4":
-                            
-                        break;
+                        case "4":                            
                         
-                        case "5":
-                            
-                        break;
-                        
-                        case "6":
-                            
-                        break;                        
-                       
-                        case "7":
-                            
-                        break;
-                        case "8":
-                            
-                        break;
         }
         
         
