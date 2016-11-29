@@ -52,10 +52,14 @@ public class affichagepromotion extends HttpServlet {
             String etudiant = request.getParameter("etudiant");
             int idetu = (Integer.parseInt(request.getParameter("idetu")));
             pr.setAnnee(nompromo);
-          
-               
             
-           out.println("Vous avez ajouté la promotion : <br>" + pr.toString());
+            /*********************************************
+             * Manque l'ajout des etudiants cochés dans la liste des etudiants de la promotion
+             *********************************************************************************/
+            
+            
+           out.println("Vous avez ajouté la promotion : <br>" + pr.toString() + "<br>");
+           //out.println("Liste des etudiants de la promotion : " + pr.getListEtud() + "<br>");
            out.println("<br><a href=\"index.html\">Retour au menu</a>");
            out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");
            out.println("</body>");
