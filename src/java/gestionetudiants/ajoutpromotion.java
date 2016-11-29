@@ -18,12 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class ajoutetudiant extends HttpServlet {
-    public void init(ServletConfig c) throws ServletException {
-        super.init(c);
-        getServletContext().setAttribute("listEtudiants", new ArrayList<Etudiant>());
-                
-    }
+public class ajoutpromotion extends HttpServlet {
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,19 +37,22 @@ public class ajoutetudiant extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ajoutetudiant</title>");            
+            out.println("<title>Ajout d'une promotion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ajoutetudiant at " + request.getContextPath() + "</h1>");
-            Etudiant et = new Etudiant();
-            et.setNom(request.getParameter("nom"));
-            et.setPrenom(request.getParameter("prenom"));
-            et.setAge(Integer.parseInt(request.getParameter("age")));
+             out.println("<h1>Création d'une nouvelle promotion</h1>");            
+            out.println("<form method='get' action='affichagepromotion'");
+            out.println("<label>Nom de la promotion</label><input type='text' name='nompromo'/><br>");
+            out.println("<label>Choisissez les étudiants à ajouter : </label><br>");
             ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
-            listEtudiants.add(et);
-            out.println("Vous avez ajouté l etudiant : <br>"+et.toString());
-            out.println("<br><a href=\"index.html\">Retour au menu</a>");
-            out.println("<br><a href=\"ajoutetudiant.html\">Ajouter un nouvel étudiant</a>");
+            for(int i=0;i<listEtudiants.size();i++)
+			{
+                            
+                            out.println("<input type='checkbox' name='etudiant' />"+"<label name='idetu'>"+(i+1)+"</label>" + "<label>"+ listEtudiants.get(i) + "</label><br>");
+			}
+            out.println("<input type='submit'/>");
+            out.println("</form>");
+            
             out.println("</body>");
             out.println("</html>");
         }

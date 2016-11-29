@@ -37,7 +37,7 @@ public class traitementMenu extends HttpServlet {
                         break;                                               
                         
                         case "2":
-                            
+                            response.sendRedirect("ajoutpromotion");
                         break;
                         
                         case "3":

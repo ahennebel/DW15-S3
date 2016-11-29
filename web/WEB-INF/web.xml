@@ -8,6 +8,14 @@
         <servlet-name>ajoutetudiant</servlet-name>
         <servlet-class>gestionetudiants.ajoutetudiant</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ajoutpromotion</servlet-name>
+        <servlet-class>gestionetudiants.ajoutpromotion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>affichagepromotion</servlet-name>
+        <servlet-class>gestionetudiants.affichagepromotion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>traitementMenu</servlet-name>
         <url-pattern>/traitementMenu</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>ajoutetudiant</servlet-name>
         <url-pattern>/ajoutetudiant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajoutpromotion</servlet-name>
+        <url-pattern>/ajoutpromotion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>affichagepromotion</servlet-name>
+        <url-pattern>/affichagepromotion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

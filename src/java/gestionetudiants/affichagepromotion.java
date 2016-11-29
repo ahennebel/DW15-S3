@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class ajoutetudiant extends HttpServlet {
+public class affichagepromotion extends HttpServlet {
     public void init(ServletConfig c) throws ServletException {
         super.init(c);
-        getServletContext().setAttribute("listEtudiants", new ArrayList<Etudiant>());
+        getServletContext().setAttribute("listPromtions", new ArrayList<Promotion>());
                 
     }
     /**
@@ -41,21 +41,25 @@ public class ajoutetudiant extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ajoutetudiant</title>");            
+            out.println("<title>Servlet affichagepromotion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ajoutetudiant at " + request.getContextPath() + "</h1>");
-            Etudiant et = new Etudiant();
-            et.setNom(request.getParameter("nom"));
-            et.setPrenom(request.getParameter("prenom"));
-            et.setAge(Integer.parseInt(request.getParameter("age")));
+            out.println("<h1>Ajout de la promotion</h1>");
+            Promotion pr=new Promotion();
             ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
-            listEtudiants.add(et);
-            out.println("Vous avez ajouté l etudiant : <br>"+et.toString());
-            out.println("<br><a href=\"index.html\">Retour au menu</a>");
-            out.println("<br><a href=\"ajoutetudiant.html\">Ajouter un nouvel étudiant</a>");
-            out.println("</body>");
-            out.println("</html>");
+            ArrayList<Promotion> listPromtions = (ArrayList<Promotion>)getServletContext().getAttribute("listPromtions");
+            String nompromo = request.getParameter("nompromo");
+            String etudiant = request.getParameter("etudiant");
+            int idetu = (Integer.parseInt(request.getParameter("idetu")));
+            pr.setAnnee(nompromo);
+          
+               
+            
+           out.println("Vous avez ajouté la promotion : <br>" + pr.toString());
+           out.println("<br><a href=\"index.html\">Retour au menu</a>");
+           out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");
+           out.println("</body>");
+           out.println("</html>");
         }
     }
 
