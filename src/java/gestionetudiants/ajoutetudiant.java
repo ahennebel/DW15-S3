@@ -7,6 +7,8 @@ package gestionetudiants;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author Aurelie pc neuf
  */
 public class ajoutetudiant extends HttpServlet {
-
+    public void init(ServletConfig c) throws ServletException {
+        super.init(c);
+        getServletContext().setAttribute("listEtudiants", new ArrayList<Etudiant>());
+                
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,6 +49,8 @@ public class ajoutetudiant extends HttpServlet {
             et.setNom(request.getParameter("nom"));
             et.setPrenom(request.getParameter("prenom"));
             et.setAge(Integer.parseInt(request.getParameter("age")));
+            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
+            listEtudiants.add(et);
             out.println("Vous avez ajouté l etudiant : <br>"+et.toString());
             out.println("</body>");
             out.println("</html>");
