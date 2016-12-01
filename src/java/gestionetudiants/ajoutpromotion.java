@@ -43,11 +43,11 @@ public class ajoutpromotion extends HttpServlet {
             out.println("<h1>Création d'une nouvelle promotion</h1>");            
             out.println("<form method='get' action='affichagepromotion'");
             out.println("<label>Nom de la promotion</label><input type='text' name='nompromo'/><br>");
-            out.println("<label>Choisissez les étudiants à ajouter : </label><br>");
+            out.println("<label>Indiquez le numéro de l'étudiant à ajouter : <input type='text' name='choixetudiant'/></label><br>");
             ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
             for(int i=0;i<listEtudiants.size();i++)
 			{                            
-                            out.println("<input type='checkbox' name='etudiant' />"+"<label name='idetu'>"+(i+1)+"</label>" + "<label>"+ listEtudiants.get(i) + "</label><br>");
+                            out.println("<p>  "+(i+1) +" -- " + listEtudiants.get(i)  +"</p><br>");
 			}
             out.println("<input type='submit'/>");
             out.println("</form>");

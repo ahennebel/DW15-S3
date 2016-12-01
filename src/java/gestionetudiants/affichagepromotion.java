@@ -50,20 +50,16 @@ public class affichagepromotion extends HttpServlet {
             ArrayList<Promotion> listPromtions = (ArrayList<Promotion>)getServletContext().getAttribute("listPromtions");
             String nompromo = request.getParameter("nompromo");
             String etudiant = request.getParameter("etudiant");
-            int idetu = (Integer.parseInt(request.getParameter("idetu")));
+            int num = (Integer.parseInt(request.getParameter("choixetudiant")));
             pr.setAnnee(nompromo);
-            
-            /*********************************************
-             * Manque l'ajout des etudiants cochés dans la liste des etudiants de la promotion
-             *********************************************************************************/
-            
-            
-           out.println("Vous avez ajouté la promotion : <br>" + pr.toString() + "<br>");
-           //out.println("Liste des etudiants de la promotion : " + pr.getListEtud() + "<br>");
-           out.println("<br><a href=\"index.html\">Retour au menu</a>");
-           out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");
-           out.println("</body>");
-           out.println("</html>");
+            Etudiant et=listEtudiants.get(num-1);
+            pr.ajouterEtud(et);         
+            listPromtions.add(pr);
+            out.println("Vous avez ajouté la promotion : <br>" + pr.toString() + "<br>");           
+            out.println("<br><a href=\"index.html\">Retour au menu</a>");
+            out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
