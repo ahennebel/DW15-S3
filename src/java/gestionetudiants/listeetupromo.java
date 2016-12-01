@@ -8,7 +8,6 @@ package gestionetudiants;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class ajoutpromotion extends HttpServlet {
-    
+public class listeetupromo extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,21 +36,16 @@ public class ajoutpromotion extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Ajout d'une promotion</title>");            
+            out.println("<title>Servlet listeetupromo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Création d'une nouvelle promotion</h1>");            
-            out.println("<form method='get' action='affichagepromotion'");
-            out.println("<label>Nom de la promotion</label><input type='text' name='nompromo'/><br>");
-            out.println("<label>Indiquez le numéro de l'étudiant à ajouter : <input type='text' name='choixetudiant'/></label>");
-           
-            out.println("<input type='submit'/>");
-            out.println("</form>");
-            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
-            for(int i=0;i<listEtudiants.size();i++)
-			{                            
-                            out.println("<p>  "+(i+1) +" -- " + listEtudiants.get(i)  +"</p><br>");
-			}
+            out.println("<h1>Voici la liste des étudiants : </h1>");
+            ArrayList<Promotion> listPromtions = (ArrayList<Promotion>)getServletContext().getAttribute("listPromtions");
+            int numPromo = (Integer.parseInt(request.getParameter("choixpromo")));
+            Promotion bonnePromo = listPromtions.get(numPromo-1);
+            out.println("Liste des etudiants : \n" + bonnePromo.getListEtud()); 
+            out.println("<br><a href=\"index.html\">Retour au menu</a>");
+            out.println("<br><a href=\"listingetudiantspromo\">Afficher une autre promotion</a>");
             out.println("</body>");
             out.println("</html>");
         }

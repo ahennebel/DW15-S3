@@ -20,6 +20,14 @@
         <servlet-name>ajoutetudiantpromo</servlet-name>
         <servlet-class>gestionetudiants.ajoutetudiantpromo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listingetudiantspromo</servlet-name>
+        <servlet-class>gestionetudiants.listingetudiantspromo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listeetupromo</servlet-name>
+        <servlet-class>gestionetudiants.listeetupromo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>traitementMenu</servlet-name>
         <url-pattern>/traitementMenu</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ajoutetudiantpromo</servlet-name>
         <url-pattern>/ajoutetudiantpromo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listingetudiantspromo</servlet-name>
+        <url-pattern>/listingetudiantspromo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listeetupromo</servlet-name>
+        <url-pattern>/listeetupromo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

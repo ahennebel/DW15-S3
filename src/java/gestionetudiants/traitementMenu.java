@@ -41,7 +41,7 @@ public class traitementMenu extends HttpServlet {
                         break;
                         
                         case "3":
-                            
+                            response.sendRedirect("listingetudiantspromo");
                         break;
                         
                         case "4":                            
