@@ -7,6 +7,8 @@ package gestionetudiants;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class traitementMenu extends HttpServlet {
+public class listeetu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,27 +31,48 @@ public class traitementMenu extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet listeetu</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet listeetu at " + request.getContextPath() + "</h1>");
+            Scanner sc=new Scanner(System.in);
+            String etudNom = request.getParameter("choixetu");
+            boolean trouve = false;
+            Etudiant bonEtudiant = null;
+            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
+            for(int i=0;i<listEtudiants.size();i++){
+                Etudiant chercheEtudiant = listEtudiants.get(i);
+                if ((chercheEtudiant.getNom()).equals(etudNom)){                    
+                    trouve = true;
+                    bonEtudiant = chercheEtudiant;        
+                }                
+            }            
+            if (trouve == false){
+                out.println("Etudiant inconnu , veuillez réessayer :");
+            }else{
+                out.println("Entrer les notes de l'etudiant (-1 pour terminer) :");
+		int i=1;
+		out.println("Note "+i);
+		int note=sc.nextInt();
+		
+		while(-1!=note){			
+			bonEtudiant.ajouterNote(note);
+			i++;
+			out.println("Note "+i);
+			note=sc.nextInt();			
+		}
+            }
+          out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
         
-        String choix = request.getParameter("choix");
-        switch (choix){           
-                        case "1": 
-                            response.sendRedirect("ajoutetudiant.html");
-                        break;                                               
-                        
-                        case "2":
-                            response.sendRedirect("ajoutpromotion");
-                        break;
-                        
-                        case "3":
-                            response.sendRedirect("listingetudiantspromo");
-                        break;
-                            
-                        case "4":  
-                            response.sendRedirect("listingetudiant");
-                        break;
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -28,6 +28,14 @@
         <servlet-name>listeetupromo</servlet-name>
         <servlet-class>gestionetudiants.listeetupromo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listingetudiant</servlet-name>
+        <servlet-class>gestionetudiants.listingetudiant</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listeetu</servlet-name>
+        <servlet-class>gestionetudiants.listeetu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>traitementMenu</servlet-name>
         <url-pattern>/traitementMenu</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>listeetupromo</servlet-name>
         <url-pattern>/listeetupromo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listingetudiant</servlet-name>
+        <url-pattern>/listingetudiant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listeetu</servlet-name>
+        <url-pattern>/listeetu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

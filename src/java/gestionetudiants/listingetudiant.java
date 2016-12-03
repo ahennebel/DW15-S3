@@ -7,6 +7,7 @@ package gestionetudiants;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aurelie pc neuf
  */
-public class traitementMenu extends HttpServlet {
+public class listingetudiant extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,27 +30,32 @@ public class traitementMenu extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String choix = request.getParameter("choix");
-        switch (choix){           
-                        case "1": 
-                            response.sendRedirect("ajoutetudiant.html");
-                        break;                                               
-                        
-                        case "2":
-                            response.sendRedirect("ajoutpromotion");
-                        break;
-                        
-                        case "3":
-                            response.sendRedirect("listingetudiantspromo");
-                        break;
-                            
-                        case "4":  
-                            response.sendRedirect("listingetudiant");
-                        break;
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Listing Etudiants</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Voici la liste des étudiants : </h1>");
+            out.println("<form method='get' action='listeetu'");            
+            out.println("<label>Indiquez le nom de l'étudiant auquel vous souhaitez ajouter une note: <input type='text' name='choixetu'/></label>");
+            out.println("<input type='submit'/>");
+            out.println("</form>");
+            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
+            for(int i=0;i<listEtudiants.size();i++)
+			{                            
+                            Etudiant et = listEtudiants.get(i);
+                            out.print(i+1+" " );
+                            out.println(et.getNom());
+                            out.println(et.getPrenom() + "<br>");
+			}            
+            out.println("<br><a href=\"index.html\">Retour au menu</a>");   
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
