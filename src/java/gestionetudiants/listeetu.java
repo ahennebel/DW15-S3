@@ -29,6 +29,7 @@ public class listeetu extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    String choixetu = null;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,36 +41,50 @@ public class listeetu extends HttpServlet {
             out.println("<title>Servlet listeetu</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet listeetu at " + request.getContextPath() + "</h1>");
-            Scanner sc=new Scanner(System.in);
-            String etudNom = request.getParameter("choixetu");
-            boolean trouve = false;
-            Etudiant bonEtudiant = null;
+            out.println("<h1>Ajout de notes pour l'étudiant : </h1>");
             ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
-            for(int i=0;i<listEtudiants.size();i++){
-                Etudiant chercheEtudiant = listEtudiants.get(i);
-                if ((chercheEtudiant.getNom()).equals(etudNom)){                    
-                    trouve = true;
-                    bonEtudiant = chercheEtudiant;        
-                }                
-            }            
-            if (trouve == false){
-                out.println("Etudiant inconnu , veuillez réessayer :");
+            Etudiant bonEtudiant = null;
+            
+            if(choixetu == null){
+                String etudNom = request.getParameter("choixetu");
+                boolean trouve = false;
+                for(int i=0;i<listEtudiants.size();i++){
+                    Etudiant chercheEtudiant = listEtudiants.get(i);
+                    if ((chercheEtudiant.getNom()).equals(etudNom)){                    
+                        trouve = true;
+                        bonEtudiant = chercheEtudiant;
+                        choixetu = bonEtudiant.getNom();
+                    }                
+                }            
+                if (trouve == false){
+                    out.println("Etudiant inconnu , veuillez réessayer :");
+                }
+                
             }else{
-                out.println("Entrer les notes de l'etudiant (-1 pour terminer) :");
-		int i=1;
-		out.println("Note "+i);
-		int note=sc.nextInt();
-		
-		while(-1!=note){			
-			bonEtudiant.ajouterNote(note);
-			i++;
-			out.println("Note "+i);
-			note=sc.nextInt();			
-		}
+                for(int i=0;i<listEtudiants.size();i++){
+                Etudiant chercheEtudiant = listEtudiants.get(i);
+                    if ((chercheEtudiant.getNom()).equals(choixetu)){                  
+
+                        bonEtudiant = chercheEtudiant;        
+                    }                
+                }
+                out.println("Etudiant actuellement choisi : " + choixetu);
+                           
             }
+            out.println("<form method='get' action='listeetu'>");
+            out.println("<input type='number' name='note' max='20'/>");
+            out.println("<input type='submit'/>");
+            out.println("</form>");
+            
+            int note = (Integer.parseInt(request.getParameter("note")));
+					
+			bonEtudiant.ajouterNote(note);
+					
+		
+          
           out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
-        
+            out.println("<br><a href=\"index.html\">Retour au menu</a>");
+            out.println("<br><a href=\"listingetudiant\">Changer d'étudiant</a>"); 
             out.println("</body>");
             out.println("</html>");
         }

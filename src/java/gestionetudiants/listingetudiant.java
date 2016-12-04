@@ -49,8 +49,8 @@ public class listingetudiant extends HttpServlet {
 			{                            
                             Etudiant et = listEtudiants.get(i);
                             out.print(i+1+" " );
-                            out.println(et.getNom());
-                            out.println(et.getPrenom() + "<br>");
+                            out.println("Nom : " + et.getNom());
+                            out.println("Prenom : " + et.getPrenom() + "<br>");
 			}            
             out.println("<br><a href=\"index.html\">Retour au menu</a>");   
             out.println("</body>");
