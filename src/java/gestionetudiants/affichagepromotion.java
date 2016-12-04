@@ -88,7 +88,7 @@ public class affichagepromotion extends HttpServlet {
             
             
             out.println("<br><a href=\"index.html\">Retour au menu</a>");
-            out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");            
+            out.println("<br><a href=\"ajoutpromotion.html\">Créer une autre promotion</a>");            
             out.println("</body>");
             out.println("</html>");
         }

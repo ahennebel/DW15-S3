@@ -82,7 +82,7 @@ public class listeetu extends HttpServlet {
 					
 		
           
-          out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
+            out.println("Récapitulatif étudiant :"+bonEtudiant.toString());
             out.println("<br><a href=\"index.html\">Retour au menu</a>");
             out.println("<br><a href=\"listingetudiant\">Changer d'étudiant</a>"); 
             out.println("</body>");
