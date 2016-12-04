@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Aurelie pc neuf
  */
 public class affichagepromotion extends HttpServlet {
+    String choixpromo = null; //On determine si une promotion a déjà été choisie plus loin
     public void init(ServletConfig c) throws ServletException {
         super.init(c);
         getServletContext().setAttribute("listPromtions", new ArrayList<Promotion>());
@@ -45,19 +46,49 @@ public class affichagepromotion extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Ajout de la promotion</h1>");
-            Promotion pr=new Promotion();
-            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
+            
             ArrayList<Promotion> listPromtions = (ArrayList<Promotion>)getServletContext().getAttribute("listPromtions");
-            String nompromo = request.getParameter("nompromo");
-            String etudiant = request.getParameter("etudiant");
+            ArrayList<Etudiant> listEtudiants = (ArrayList<Etudiant>)getServletContext().getAttribute("listEtudiants");
+            Promotion pr = null;
+            if(choixpromo == null){
+                /** Ajout de la promotion - creation de la promotion **/
+                pr = new Promotion();                       
+                String nompromo = request.getParameter("nompromo");               
+                pr.setAnnee(nompromo);     
+                listPromtions.add(pr);
+                out.println("Vous avez ajouté la promotion : <br>" + pr.toString() + "<br>");
+                choixpromo = pr.getAnnee();
+            }else{                
+                for(int i=0;i<listPromtions.size();i++){
+                Promotion cherchePromo = listPromtions.get(i);
+                    if ((cherchePromo.getAnnee()).equals(choixpromo)){                  
+
+                        pr = cherchePromo;        
+                    }                
+                }
+                out.println("promotion actuellement choisie : " + choixpromo);
+            }
+            
+            out.println("<form method='get' action='affichagepromotion'");
+            out.println("<label>Indiquez le numéro de l'étudiant à ajouter : <input type='text' name='choixetudiant'/></label>");
+            out.println("<input type='submit'/>");
+            out.println("</form>"); 
+            out.println("Voici les étudiants disponibles : <br>");
+            for(int i=0;i<listEtudiants.size();i++)
+			{                            
+                            out.println("<p>  "+(i+1) +" -- " + listEtudiants.get(i)  +"</p>");
+			}
+
+            // Traitement lors du rechargement de la page
             int num = (Integer.parseInt(request.getParameter("choixetudiant")));
-            pr.setAnnee(nompromo);
-            Etudiant et=listEtudiants.get(num-1);
-            pr.ajouterEtud(et);         
-            listPromtions.add(pr);
-            out.println("Vous avez ajouté la promotion : <br>" + pr.toString() + "<br>");           
+            Etudiant et = listEtudiants.get(num-1);       
+            pr.ajouterEtud(et); 
+            out.println("Etudiant : "+ et.toString() + "ajouté à la promotion : " + choixpromo + ": <br>");
+                      
+            
+            
             out.println("<br><a href=\"index.html\">Retour au menu</a>");
-            out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");
+            out.println("<br><a href=\"ajoutpromotion\">Créer une autre promotion</a>");            
             out.println("</body>");
             out.println("</html>");
         }
